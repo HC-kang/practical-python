@@ -3,18 +3,26 @@
 # Exercise 1.27
 
 import sys
+import csv
 
 def portfolio_cost(filename):
     '''
     test
     '''
     tot_cost = 0
-    data = open(filename, 'rt')
-    headers = next(data)
+    f = open(filename, 'rt')
+    rows = csv.reader(f)
+    headers = next(rows)
     headers
-    for line in data:
-        _, i, j = line.split(',')
-        tot_cost += float(i) * float(j)
+    for rowno, row in enumerate(rows, start = 1):
+        record = dict(zip(headers, row))
+        record
+        try:
+            nshares = int(record['shares'])
+            price = float(record['price'])
+            tot_cost += nshares * price
+        except ValueError:
+            print(f"Row {rowno}: Couldn't convert: {row}")
     return tot_cost
     
     
@@ -24,6 +32,8 @@ else:
     filename = 'Data/portfolio.csv'
     
 portfolio_cost('Data/portfolio.csv')
+portfolio_cost('Data/portfoliodate.csv')
+portfolio_cost('Data/missing.csv')
 cost = portfolio_cost(filename)
 print('Total_cost : ', cost)
 
