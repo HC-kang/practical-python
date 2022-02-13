@@ -99,3 +99,5 @@ record
 s = '6/11/2007'
 ss = tuple(s.split('/'))
 ss
+
+
