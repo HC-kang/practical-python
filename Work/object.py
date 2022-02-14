@@ -101,3 +101,36 @@ ss = tuple(s.split('/'))
 ss
 
 
+def square(x):
+    return x*x
+
+a = 42
+b = a+2
+
+z = square(b)
+z
+
+def read_prices(filename):
+    prices = {}
+    with open(filename) as f:
+        f_csv = csv.reader(f)
+        for row in f_csv:
+            prices[row[0]] = float(row[1])
+    return prices
+
+def read_prices(filename):
+    '''
+    csvㅍ일에서 이름, 가격 데이터 읽어오는 함수
+    '''
+    prices = {}
+    with open(filename) as f:
+        f_csv = csv.reader(f)
+        for row in f_csv:
+            prices[row[0]] = float(row[1])
+    return prices
+
+
+
+
+
+    
