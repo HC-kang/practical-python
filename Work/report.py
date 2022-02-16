@@ -183,9 +183,11 @@ def read_prices(filename):
     print('read prices complete')
     return prices
 
+import fileparse
+
 def make_portfolio_report(portfolioFilename, pricesFilename):
-    report = read_portfolio(portfolioFilename)
-    prices = read_prices(pricesFilename)
+    report = fileparse.parse_csv(portfolioFilename)
+    prices = fileparse.parse_csv2(pricesFilename)
     headers = ['Name', 'Shares', 'Price' ,'Change']
     print()
     print(f'{headers[0]:>10} {headers[1]:>10} {headers[2]:>10} {headers[3]:>10}')

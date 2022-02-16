@@ -3,7 +3,6 @@
 # Exercise 3.3
 
 import csv
-from msilib.schema import Error
 
 def parse_csv(filename, select = None, types = None):
     '''
@@ -32,7 +31,7 @@ def parse_csv(filename, select = None, types = None):
     return records
 
 
-parse_csv('Data/portfolio.csv', ['price', 'name'], [str, int, float])
+# parse_csv('Data/portfolio.csv', ['price', 'name'], [str, int, float])
 
 def parse_csv2(filename, types = None, has_headers = False):
     '''
@@ -53,7 +52,7 @@ def parse_csv2(filename, types = None, has_headers = False):
     return prices
 
 
-parse_csv2('Data/prices.csv', [str, float], True)
+parse_csv2('Data/prices.csv')
 
 
 def parse_csv3(filename, select = None, types = None, delimiter = ','):
@@ -83,7 +82,7 @@ def parse_csv3(filename, select = None, types = None, delimiter = ','):
     return records
 
 
-parse_csv3('Data/portfolio.dat', ['price', 'name'], [str, int, float], delimiter=' ')
+# parse_csv3('Data/portfolio.dat', ['price', 'name'], [str, int, float], delimiter=' ')
 
 
 def parse_csv4(filename, select=None, types = None, has_headers = False):
@@ -115,7 +114,7 @@ def parse_csv4(filename, select=None, types = None, has_headers = False):
             prices.append((row[0], row[1]))
     return prices
 
-parse_csv4('Data/prices.csv',select=['Name', 'price'], types = [str, float], has_headers = False)
+# parse_csv4('Data/prices.csv',select=['Name', 'price'], types = [str, float], has_headers = False)
 
 
 def parse_csv5(filename, select = None, types = None, delimiter = ','):
@@ -145,7 +144,7 @@ def parse_csv5(filename, select = None, types = None, delimiter = ','):
     return records
 
 
-parse_csv5('Data/missing.csv', types = [str, int, float])
+# parse_csv5('Data/missing.csv', types = [str, int, float])
 
 import csv
 
@@ -164,5 +163,5 @@ def parse_csv(filename, types = None, silence_errors = False):
             portfolio.append(dict(zip(headers, row)))
     return portfolio
 
-parse_csv('Data/portfolio.csv', types = [str, int, float])
-parse_csv('Data/missing.csv', types = [str, int, float], silence_errors=True)
+# parse_csv('Data/portfolio.csv', types = [str, int, float])
+# parse_csv('Data/missing.csv', types = [str, int, float], silence_errors=True)
