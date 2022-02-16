@@ -3,6 +3,7 @@
 # Exercise 3.3
 
 import csv
+from msilib.schema import Error
 
 def parse_csv(filename, select = None, types = None):
     '''
@@ -145,3 +146,23 @@ def parse_csv5(filename, select = None, types = None, delimiter = ','):
 
 
 parse_csv5('Data/missing.csv', types = [str, int, float])
+
+import csv
+
+def parse_csv(filename, types = None, silence_errors = False):
+    with open(filename, 'rt') as f:
+        rows = csv.reader(f)
+        headers= next(rows)
+        portfolio = []
+        for rowno,row in enumerate(rows):
+            try:
+                if types:
+                    row = [func(val) for func, val in zip(types, row)]
+            except ValueError:
+                if not silence_errors:
+                    print(f'Row : {rowno} \t변환 할 수 없습니다.')
+            portfolio.append(dict(zip(headers, row)))
+    return portfolio
+
+parse_csv('Data/portfolio.csv', types = [str, int, float])
+parse_csv('Data/missing.csv', types = [str, int, float], silence_errors=True)
