@@ -40,3 +40,27 @@ def throwIndexErrorFromRow(rowNo):
 def throwValueErrorFromRow(rowNo):
     raise ValueError(f"Row {rowNo} : Can't read this Row.")
             
+
+def read_portfolio2(lines):
+    '''
+    portfolio 파일을 읽어 Dict들의 List로 반환합니다.
+    '''
+    headers = next(lines)
+    portfolio = []
+    for rowNo, row in enumerate(lines):
+        print(row)
+        # try:
+        #     row = [row[0], int(row[1]), float(row[2])]
+        #     portfolio.append(dict(zip(headers, row)))
+        # except ValueError:
+        #     throwValueErrorFromRow(rowNo)
+            
+    return portfolio
+
+
+            
+import gzip
+with gzip.open('Data/portfolio.csv.gz', 'rt') as file:
+    port = read_portfolio2(file)
+    
+read_portfolio2('Data/portfolio.csv')
