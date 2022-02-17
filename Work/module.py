@@ -1,10 +1,9 @@
-import foo
-
-import foo as f
-
 import sys
-sys.modules.keys()
+if len(sys.argv) != 3:
+    raise SystemExit(f'Usage: {sys.argv[0]} ' 'portfile pricefile')
+portfile = sys.argv[1]
+pricefile = sys.argv[2]
 
-sys.path
+import os
 
-import report
+name = os.environ['NAME']
