@@ -29,3 +29,10 @@ s = MyStock('GooG', 100, 490.1, 1)
 
 
 s = MyStock('GooG', 100, 1)
+
+import report
+
+report.portfolio_report('../Data/portfolio.csv', '../Data/prices.csv', 'csv')
+
+a = 'port.csv'
+a.split('.')[1]
