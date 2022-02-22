@@ -48,3 +48,31 @@ a == None
 a = getattr(s, 'name')
 a == None
 
+import stock
+goog = stock.Stock('GOOG', 100, 490.1)
+goog
+
+import report
+
+portfolio = report.read_portfolio('../Data/portfolio.csv')
+portfolio
+
+import stock
+s = stock.Stock('GOOG', 100, 490.1)
+columns = ['name', 'shares']
+for colname in columns:
+    print(colname, '=', getattr(s, colname))
+
+
+import report
+report.portfolio_report('../Data/portfolio.csv', '../Data/prices.csv', 'txt')
+
+portfolio = report.read_portfolio('../Data/portfolio.csv')
+from tableformat import create_formatter, print_table
+
+formatter = create_formatter('txt')
+print_table(portfolio, ['name', 'shares'], formatter)
+
+from tableformat import create_formatter
+
+formatter = create_formatter('xls')
