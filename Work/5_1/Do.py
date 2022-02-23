@@ -106,7 +106,7 @@ s.__dict__
 
 words = 'hello!!'
 k = words.replace
-k.
+
 
 words
 
