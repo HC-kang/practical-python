@@ -29,3 +29,9 @@ import report
 
 port = report.read_portfolio('../Data/missing.csv')
 port = report.read_portfolio('../Data/missing.csv', silence_errors = True)
+
+
+a = 10000
+b = 0.12345
+
+print(f'{b:^30f}')
